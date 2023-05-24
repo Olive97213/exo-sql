@@ -62,16 +62,16 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="col-md-9">Payment for August 2016</td>
-                            <td class="col-md-3"><i class="fa fa-inr"></i> 15,000/-</td>
+                            <td class="col-md-9 produit">Payment for August 2016</td>
+                            <td class="col-md-3"><i class="fa fa-inr prix"></i>15,000/-</td>
                         </tr>
                         <tr>
-                            <td class="col-md-9">Payment for June 2016</td>
-                            <td class="col-md-3"><i class="fa fa-inr"></i> 6,00/-</td>
+                            <td class="col-md-9 produit">Payment for June 2016</td>
+                            <td class="col-md-3"><i class="fa fa-inr prix"></i>6,00/-</td>
                         </tr>
                         <tr>
-                            <td class="col-md-9">Payment for May 2016</td>
-                            <td class="col-md-3"><i class="fa fa-inr"></i> 35,00/-</td>
+                            <td class="col-md-9 produit">Payment for May 2016</td>
+                            <td class="col-md-3"><i class="fa fa-inr prix"></i>35,00/-</td>
                         </tr>
                         <tr>
                             <td class="text-right">
