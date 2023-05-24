@@ -9,23 +9,26 @@ try {
     $pdo = new PDO($dsn, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    // Récupérer les informations des utilisateurs depuis la base de données
-    $query = "SELECT name, email FROM user"; // Ajout de la colonne email
+    // Récupérer les informations des utilisateurs et des commandes depuis les tables
+    $query =  "SELECT `order`.`idOrder`, `user`.`name`, `user`.`email`
+    FROM `order`
+    LEFT JOIN `user` ON `order`.`User_idUser` = `user`.`idUser`
+    ORDER BY `order`.`idOrder` ASC";
     $stmt = $pdo->prepare($query);
     $stmt->execute();
     
     // Créez une liste déroulante (select) avec les résultats
-    echo "<select name='nom' id='nom' onchange='updateElements(this.value)'>";
+    echo "<select name='order' id='order' onchange='updateElements(this.value)'>";
    
     // Option titre ou option vide avec libellé spécifique
-    echo "<option value='' disabled selected>Choisissez une personne</option>";
+    echo "<option value='' disabled selected>Choisissez une commande</option>";
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo "<option value='" . $row['name'] . "' data-email='" . $row['email'] . "'>" . $row['name'] . "</option>"; // Ajout de l'attribut data-email pour stocker l'e-mail
+        echo "<option value='" . $row['idOrder'] . "' data-name='" . $row['name'] . "' data-email='" . $row['email'] . "'>" . $row['idOrder'] . " - " . $row['name'] ."</option>";
     }
     echo "</select>";
     
-    // Afficher l'e-mail sélectionné (facultatif)
-    echo "<div id='selectedEmail'></div>";
+    // Afficher les détails de la commande sélectionnée (facultatif)
+    echo "<div id='selectedOrder'></div>";
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
