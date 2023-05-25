@@ -38,15 +38,15 @@
 				<div class="receipt-header receipt-header-mid">
 					<div class="col-xs-8 col-sm-8 col-md-8 text-left">
 						<div class="receipt-right">
-							<h5 id="orderName">Customer Name </h5>
+							<h5 id="orderName"> </h5>
 							<p><b>Mobile :</b> +1 12345-4569</p>
-                            <p><b>Email :</b> <span id="orderEmail">customer@gmail.com</span></p>
+                            <p><b>Email :</b> <span id="orderEmail"></span></p>
 							<p><b>Address :</b> New York, USA</p>
 						</div>
 					</div>
 					<div class="col-xs-4 col-sm-4 col-md-4">
 						<div class="receipt-left">
-                        <h3 id="orderDate">INVOICE # 102</h3>
+                        <h3>Date :<span id="orderDate"></span></h3>
 						</div>
 					</div>
 				</div>
@@ -62,54 +62,26 @@
                     </thead>
                     <tbody>
                     <h3>Détails de la commande</h3>
-<p>ID de commande : <span id="orderId"></span></p>
+                     <p>ID de commande : <span id="orderId"></span></p>
 <!-- <p>Produits : <span id="orderProducts"></span></p> -->
                         <tr>
-                            <td class="col-md-9 orderProductsData">Payment for August 2016</td>
-                            <td class="col-md-3 orderPriceData"><i class="fa fa-inr"></i>15,000/-</td>
+                            <td class="col-md-9 orderProductsData"></td>
+                            <td class="col-md-3 orderPriceData"><i class="fa fa-inr"></i></td>
                         </tr>
                         <tr>
-                            <td class="col-md-9 orderProductsData">Payment for June 2016</td>
-                            <td class="col-md-3 orderPriceData"><i class="fa fa-inr"></i>6,00/-</td>
+                            <td class="col-md-9 orderProductsData"></td>
+                            <td class="col-md-3 orderPriceData"><i class="fa fa-inr"></i></td>
                         </tr>
                         <tr>
-                            <td class="col-md-9 orderProductsData">Payment for May 2016</td>
-                            <td class="col-md-3 orderPriceData"><i class="fa fa-inr"></i>35,00/-</td>
+                            <td class="col-md-9 orderProductsData"></td>
+                            <td class="col-md-3 orderPriceData"><i class="fa fa-inr"></i></td>
                         </tr>
                         <tr>
-                            <td class="text-right">
-                            <p>
-                                <strong>Total Amount: </strong>
-                            </p>
-                            <p>
-                                <strong>Late Fees: </strong>
-                            </p>
-							<p>
-                                <strong>Payable Amount: </strong>
-                            </p>
-							<p>
-                                <strong>Balance Due: </strong>
-                            </p>
-							</td>
-                            <td>
-                            <p>
-                                <strong><i class="fa fa-inr"></i> 65,500/-</strong>
-                            </p>
-                            <p>
-                                <strong><i class="fa fa-inr"></i> 500/-</strong>
-                            </p>
-							<p>
-                                <strong><i class="fa fa-inr"></i> 1300/-</strong>
-                            </p>
-							<p>
-                                <strong><i class="fa fa-inr"></i> 9500/-</strong>
-                            </p>
-							</td>
-                        </tr>
-                        <tr>
+                            
+                       
                            
                             <td class="text-right"><h2><strong>Total: </strong></h2></td>
-                            <td class="text-left text-danger  orderTotalPrice"><h2><strong><i class="fa fa-inr"></i> 31.566/-</strong></h2></td>
+                            <td class="text-left text-danger  "><h2><strong><i class="fa fa-inr orderTotalPrice"></i></strong></h2></td>
                         </tr>
                     </tbody>
                 </table>

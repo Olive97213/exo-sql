@@ -1,5 +1,4 @@
 <?php
-
 // Connexion à la base de données
 $dsn = "mysql:host=localhost;dbname=mydbcom";
 $username = "root";
@@ -39,15 +38,13 @@ try {
                 'email' => $row['email'],
                 'date' => $row['date'],
                 'products' => array(), // tableau vide pour stocker les noms des produits
-                'price' => array()
+                'prices' => array() // tableau vide pour stocker les prix des produits
             );
         }
         
         // Ajouter le nom du produit à la commande correspondante
         $orders[$orderId]['products'][] = $row['product_name'];
         $orders[$orderId]['prices'][] = $row['price'];
-
-        
     }
     
     // Parcourir les commandes et générer les options de la liste déroulante
@@ -63,7 +60,7 @@ try {
     // JavaScript pour mettre à jour les détails de la commande sélectionnée
     echo "<script>
     function updateElements(orderId) {
-        var selectedOrder = document.getElementById('selectedOrder');
+        var selectedOrder = document.querySelector('#selectedOrder');
         selectedOrder.innerHTML = ''; // Vider le contenu précédent
         
         // Récupérer les détails de la commande correspondante
@@ -71,43 +68,48 @@ try {
         
         if (order) {
             // Mettre à jour les éléments HTML avec les données de la commande
-            document.getElementById('orderId').textContent = order.idOrder;
-            document.getElementById('orderName').textContent = order.name;
-            document.getElementById('orderEmail').textContent = order.email;
-            document.getElementById('orderDate').textContent = order.date;
-            
-           
+            document.querySelector('#orderId').textContent = order.idOrder;
+            document.querySelector('#orderName').textContent = order.name;
+            document.querySelector('#orderEmail').textContent = order.email;
+            document.querySelector('#orderDate').textContent = order.date;
         }
-         if (order) {
-                // Récupérer les éléments <td> avec la classe ou l'attribut personnalisé
-                var orderProductsData = document.getElementsByClassName('orderProductsData');
+        
+        if (order) {
+            // Récupérer les éléments <td> avec la classe ou l'attribut personnalisé
+            var orderProductsData = document.querySelectorAll('.orderProductsData');
                 
-                // Remplir les éléments <td> avec les noms des produits de la commande
-                for (var i = 0; i < orderProductsData.length; i++) {
-                    orderProductsData[i].textContent = order.products[i];
-                }
+            // Remplir les éléments <td> avec les noms des produits de la commande
+            for (var i = 0; i < orderProductsData.length; i++) {
+                orderProductsData[i].textContent = order.products[i];
             }
-         if (order) {
-                // Récupérer les éléments <td> avec la classe ou l'attribut personnalisé
-                var orderPriceData = document.getElementsByClassName('orderPriceData');
+        }
+        
+        if (order) {
+            // Récupérer les éléments <td> avec la classe ou l'attribut personnalisé
+            var orderPriceData = document.querySelectorAll('.orderPriceData');
                 
-                // Remplir les éléments <td> avec les noms des produits de la commande
-                for (var i = 0; i < orderPriceData.length; i++) {
-                    orderPriceData[i].textContent = order.prices[i];
-                }
-
-                
+            // Remplir les éléments <td> avec les prix des produits de la commande
+            for (var i = 0; i < orderPriceData.length; i++) {
+                orderPriceData[i].textContent = order.prices[i] + ' €';
             }
-            
-            
+        }
+        
+        if (order) {
+            // Additionner les prix des produits de la commande
+            var totalPrice = order.prices.reduce(function(a, b) {
+                return parseFloat(a) + parseFloat(b);
+            }, 0);
 
+            // Formater le total avec deux chiffres après la virgule
+            var formattedTotalPrice = totalPrice.toFixed(2) + ' €';
+            
+            // Afficher le total dans la classe existante orderTotalPrice
+            var orderTotalPrice = document.querySelector('.orderTotalPrice');
+            orderTotalPrice.textContent = formattedTotalPrice;
+        }
     }
-  </script>";
-  
-  
+    </script>";
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
 }
-
 ?>
-

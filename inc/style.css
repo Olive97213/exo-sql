@@ -105,8 +105,8 @@ body{
                 
             }
 
-            #orderDate{
-                font-size:x-large;
+            .receipt-left h3{
+                font-size:large;
             }
 
             
