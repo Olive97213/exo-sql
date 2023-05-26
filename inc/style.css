@@ -99,9 +99,8 @@ body{
             }
 
             .selection{
-                margin-left: 40em;
-                position: relative;
-                top: 10em;
+               margin-top: 2em;
+               margin-bottom: 2em;
                 
             }
 
